@@ -19,7 +19,7 @@ def find_not_repeating_first_character(string):
             return char
     return "_"
 
-    #첫번째 시도 - find_alpha_occur에서 for문을 돌려서 중첩for문 발생
+    # 첫번째 시도 - find_alpha_occur에서 for문을 돌려서 중첩for문 발생
     # not_repeat_list = []
     # find_alpha_occur = find_alphabet_occurrence_array(string)
     # smaller_index = len(string)  # 제일 작은 인덱스 담는 변수
