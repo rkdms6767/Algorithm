@@ -1,10 +1,10 @@
-# 1에서 16까지 오름차순으로 정렬되어 있는 배열이 있다.
-# 이 배열 내에 14가 존재한다면 True, 존재하지 않는다면 False 를 반환하시오.
-finding_target = 14
-finding_numbers = [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-                            # 3  4
-                            # s  l
-                            # m
+# Q. 다음과 같이 숫자로 이루어진 배열이 있을 때, 2이 존재한다면 True
+# 존재하지 않는다면 False 를 반환하시오.
+# [0, 3, 5, 6, 1, 2, 4]
+
+finding_target = 2
+finding_numbers = [0, 3, 5, 6, 1, 2, 4]
+
 def is_existing_target_number_binary(target, array):
     # 구현해보세요!
     start_index = 0
@@ -21,6 +21,8 @@ def is_existing_target_number_binary(target, array):
         middle_index = (start_index + last_index) // 2
 
     return False
+
+
 
 result = is_existing_target_number_binary(finding_target, finding_numbers)
 print(result)
