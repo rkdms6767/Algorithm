@@ -1,7 +1,11 @@
 # Q. 링크드 리스트의 끝에서 K번째 값을 반환하시오.
 # [6] -> [7] -> [8] # 이런 링크드 리스트가 입력되었을 때,
 #                   # 끝에서 2번째 값은 7을 반환해야 합니다!
-# O(2n)예상. 몇개인지 알아내고, 해당하는 곳까지 옮겨가서 데이터 보내기
+
+# 두개의 포인터 사용
+# 끝에 도달했을 때 k번째 앞인 포인터를 이용해 바로 반환!
+
+#O(n) 으로 시간복잡도가 크게 변화되지는 않음.
 
 class Node:
     def __init__(self, data):
@@ -19,25 +23,18 @@ class LinkedList:
             cur = cur.next
         cur.next = Node(value)
 
-#리스트 개수 세는 함수
-    def count(self):
-        count = 0
-        cur = self.head
-        while cur is not None:
-            count += 1
-            cur = cur.next
-        return count
-
     def get_kth_node_from_last(self, k):
-        total_count = self.count()
-        count_num = 0
-        cur = self.head                       # [1] [2] [3]
-        while count_num < (total_count - k):   # 1 < 3 - 2 뒤에서 두번째
-            count_num += 1
-            cur = cur.next
+        slow = self.head
+        #k만큼 떨어진 포인터
+        fast = slow
+        for i in range(k):
+            fast = fast.next
 
-# i in range( total_count - k): cur = cur.next 해줘도 된다. range(3) 0~2
-        return cur
+        while fast is not None:
+            fast = fast.next
+            slow = slow.next
+
+        return slow
 
 
 linked_list = LinkedList(6)
